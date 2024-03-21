@@ -1,5 +1,6 @@
 package io.quarkiverse.githubapp;
 
+import java.io.IOException;
 import java.util.Optional;
 
 import org.kohsuke.github.GHRepository;
@@ -40,7 +41,7 @@ public interface GitHubConfigFileProvider {
      * @see ConfigFile
      * @see ConfigFile.Source
      */
-    <T> Optional<T> fetchConfigFile(GHRepository repository, String path, ConfigFile.Source source, Class<T> type);
+    <T> Optional<T> fetchConfigFile(GHRepository repository, String path, ConfigFile.Source source, Class<T> type) throws IOException;
 
     /**
      * Fetches the configuration file at the given path from the given ref of the given repository,
@@ -64,6 +65,6 @@ public interface GitHubConfigFileProvider {
      * @see ConfigFile
      * @see ConfigFile.Source
      */
-    <T> Optional<T> fetchConfigFile(GHRepository repository, String ref, String path, ConfigFile.Source source, Class<T> type);
+    <T> Optional<T> fetchConfigFile(GHRepository repository, String ref, String path, ConfigFile.Source source, Class<T> type) throws IOException;
 
 }
